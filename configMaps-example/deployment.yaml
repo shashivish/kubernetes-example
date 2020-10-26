@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: casdemo
+  name: casdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: casdemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: casdemo
+    spec:
+      containers:
+      - image: shashivish123/casexploration:latest
+        name: casexploration
+        resources: {}
+status: {}

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: configdemo
+  name: configdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configdemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: configdemo
+    spec:
+      containers:
+      - image: shashivish123/springboot:latest
+        name: springboot
+        resources: {}
+        env:
+        - name: CONFIG_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: config-key
+status: {}

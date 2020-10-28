@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: stresstest
+  name: stresstest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stresstest
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: stresstest
+    spec:
+      containers:
+      - image: progrium/stress
+        name: stress
+        args:
+        - --cpu
+        - "2"
+        resources:
+          limits:
+            cpu: "1"
+            memory: "100Mi"
+          requests:
+            cpu: "0.5"
+            memory: "50Mi"
+status: {}

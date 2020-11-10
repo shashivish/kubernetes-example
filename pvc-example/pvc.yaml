@@ -10,7 +10,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   hostPath:
-    path: "/Users/shashi/data"
+    path: "/tmp"
 
 ---
 

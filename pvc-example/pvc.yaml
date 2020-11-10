@@ -1,0 +1,28 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: demo-volume
+  namespace: demo-volume-ns
+spec:
+  storageClassName: hostpath
+  capacity:
+    storage: 2Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/Users/shashi/data"
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: demo-volume-claim
+  namespace: demo-volume-ns
+spec:
+  storageClassName: hostpath
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

@@ -4,7 +4,7 @@ metadata:
   name: demo-volume
   namespace: demo-volume-ns
 spec:
-  storageClassName: minikube-hostpath
+  storageClassName: hostpath
   capacity:
     storage: 2Gi
   accessModes:
@@ -20,6 +20,7 @@ metadata:
   name: demo-volume-claim
   namespace: demo-volume-ns
 spec:
+  storageClassName: hostpath
   accessModes:
   - ReadWriteOnce
   resources:
